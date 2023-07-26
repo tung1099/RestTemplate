@@ -5,11 +5,12 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "employees")
 public class Employee {
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
 	private long id;
 	private String firstName;
 	private String lastName;
-	private String emailId;
+	private String email;
 	
 	public Employee() {
 		
@@ -18,7 +19,7 @@ public class Employee {
 	public Employee(String firstName, String lastName, String emailId) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.emailId = emailId;
+		this.email = emailId;
 	}
 	
 	@Id
@@ -47,16 +48,16 @@ public class Employee {
 	}
 	
 	@Column(name = "email_address", nullable = false)
-	public String getEmailId() {
-		return emailId;
+	public String getEmail() {
+		return email;
 	}
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setEmail(String emailId) {
+		this.email = emailId;
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId
+		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + email
 				+ "]";
 	}
 	
